@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
 if os.path.isfile("env.py"):
     import env
@@ -42,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todo'
+    'todo',
+    'collectstatic'
 ]
 
 MIDDLEWARE = [
@@ -87,7 +89,8 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # }
 
 DATABASES = {
-    os.environ.get('DATABASE_URL')
+    'default': dj_database_url.parse('postgres://igdjpceb:5-4XZMZ7fojy-RMvaPeYBZzpT86Tm1zz@trumpet.db.elephantsql.com/igdjpceb')
+    
 }
 
 
